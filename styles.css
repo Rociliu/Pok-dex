@@ -13,7 +13,8 @@ header {
 
 .header__img {
     display: flex;
-    height: 400px;
+    height: 500px;
+    width: 200px;
     padding: 10px;
 }
 
@@ -30,19 +31,25 @@ header {
     box-shadow: 3px 1px 6px black;
     align-items: center;
     padding-bottom: 10px;
+    /*background-image: url("./assets/degradado.jpg");*/
+    background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
+                url("../../media/examples/lizard.png");*/
+    
 }
 
-.card-innerCard {
+.card-content {
     display: flex;
     flex-flow: column;
     justify-content: space-between;
     align-content: space-around;
     align-items: center;
+    
+
 }
 
 .card img {
     width: 150px;
-    filter: drop-shadow(10px 10px 10px rgba(103, 67, 233, 0.5));
+    /*filter: drop-shadow(10px 10px 10px rgba(103, 67, 233, 0.5));*/
 }
 
 
@@ -52,10 +59,10 @@ header {
 }
 
 .card-id {
-  font-weight: bold;
+    font-weight: bold;
 }
 
-.card-meta {
+.card-header {
     height: 30px;
     display: flex;
     border-bottom: 1px solid;
@@ -63,6 +70,7 @@ header {
     align-content: stretch;
     align-items: center;
     padding: 0 10px;
+    background-color: rgb(169, 232, 179);
 }
 
 .card-subtitle {
