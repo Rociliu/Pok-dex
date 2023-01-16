@@ -5,15 +5,15 @@ const pokeList$$ = document.querySelector('#pokedex');
 const getPokemon = async () => {
     for (let i = 1; i < 151; i++) {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
-        const pokemonCompleto = await response.json();
-        console.log(pokemonCompleto);
+        const pokemonRes = await response.json();
+        console.log(pokemonRes);
 
-        //hacer comentario mapeo
+//no he conseguido pintar bien los pokemon con el mapeo, pero creo el objeto con los atributos que me pide el ejercicio
         const pokemon = {
-            name: pokemonCompleto.name,
-            image: pokemonCompleto.sprites['front_default'],
-            type: pokemonCompleto.types.map((type) => type.type.name).join(', '),
-            id: pokemonCompleto.id
+            name: pokemonRes.name,
+            image: pokemonRes.sprites['front_default'],
+            type: pokemonRes.types.map((type) => type.type.name).join(', '),
+            id: pokemonRes.id
         };
 
         //llamo a la funcion dentro del bucle para que se pinte por cada vuelta.
@@ -24,13 +24,12 @@ const getPokemon = async () => {
 
 function pintarPokemon(pokemon, pokeList$$) {
 
-    //Creo los elementos en el DOM:
     const newLi = document.createElement('li');
+    newLi.className = 'card-list';
 
-    
-    const card = document.createElement('div'); //Cada li será un div que llevará el contenido del pokemon en forma de carta
-    newLi.className = 'card';
-    
+    const card = document.createElement('div'); //Cada li será un div con los datos del pokemon
+    card.className = 'card';
+
     const img = document.createElement('img');
     img.src = pokemon.image;
 
@@ -52,6 +51,14 @@ function pintarPokemon(pokemon, pokeList$$) {
     const cardContent = document.createElement('div');
     cardContent.className = "card-content";
     
+    //btn que borra los pokemon que no me gustan
+    const btnPokemon = document.createElement('button')
+    btnPokemon.className ='poke-btn';
+    btnPokemon.textContent = 'NO ME GUSTA'
+    btnPokemon.addEventListener('click', () => {
+    newLi.remove()
+})
+    
     
     cardHeader.appendChild(id);
     cardHeader.appendChild(type)
@@ -63,7 +70,10 @@ function pintarPokemon(pokemon, pokeList$$) {
 
 
     newLi.appendChild(card);
+    newLi.appendChild(btnPokemon);
+
     pokeList$$.appendChild(newLi);
+    
 }
 
 
