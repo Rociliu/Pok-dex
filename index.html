@@ -9,14 +9,27 @@
     <title>Pokedex</title>
     <link rel="stylesheet" href="styles.css" />
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Righteous&display=swap"rel="stylesheet"/>
 </head>
 
 <body>
     <header>
-        <img class="header_img" src="./assets/Pokémon.png" alt="logo_pokemon">
-        <h2 class = 'text-filter-btn'>Busca tu Pokemon favorito</h2>
-        <input class= "filter-btn" type="text"/>
+        <div class="nav-container">
+            <a class="nav-a" href="#">Inicio</a>
+            <a class="nav-a" href="#">Pokemonízate</a>
+            <a class="nav-a" href="#">Contacto</a>
+            <a class="nav-a" href="#">Más</a>
+          </div>
+        <div class="header_img">
+            <img src="./assets/Pokémon.png" alt="logo_pokemon">
+        </div>
+        <div class="buscador">
+            <h2 class="text-filter-btn">Busca tu Pokemon favorito</h2>
+            <input class= "filter-btn" type="text"/>
+        </div>
     </header>
+
+    
     <div class="container">
         
         <ol id="pokedex"></ol>
